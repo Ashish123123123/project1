@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+       - package:
+                name: "docker-ce"
+                state: present
+       - service:
+                name: "docker"
+                state: started
+       - docker_image:
+                 name: centos:latest
+                 source: pull
+       - docker_container:
+                 name: sys1
+                 image: centos:latest   
